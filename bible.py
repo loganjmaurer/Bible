@@ -1,5 +1,7 @@
 import re
 import pandas as pd
+import markovify
+import random
 
 # Define the regular expression pattern to match the verse format
 pattern = r'(\w{3})\|(\d+)\|(\d+)\|(.*)'
@@ -30,3 +32,15 @@ df = pd.DataFrame(verses)
 
 # Display the first few rows
 print(df.head())
+
+# Create the Markov chain model
+text_model = markovify.Text('\n'.join(verse), state_size=2)
+
+# Generate a new "Bible" text
+new_bible_text = []
+for i in range(100):
+    new_verse = text_model.make_short_sentence(max_chars=500, max_overlap_total=400, tries=150)
+    if new_verse:
+        new_bible_text.append(new_verse)
+
+print('\n'.join(new_bible_text))
