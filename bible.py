@@ -34,7 +34,7 @@ df = pd.DataFrame(verses)
 print(df.head())
 
 # Create the Markov chain model
-text_model = markovify.Text('\n'.join(verse), state_size=2)
+text_model = markovify.Text('\n'.join(df['Content']), state_size=5)
 
 # Generate a new "Bible" text
 new_bible_text = []
