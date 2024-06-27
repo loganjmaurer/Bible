@@ -1,1 +1,1 @@
-Text mining the Bible. My goal is to use a Markov chain to generate fake verses. I will ask my priest if this is a sacrilege.
+I used a Markov chain to generate fake Bible verses. 
