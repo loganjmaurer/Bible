@@ -1,7 +1,6 @@
 import re
 import pandas as pd
 import markovify
-import random
 
 # Define the regular expression pattern to match the verse format
 pattern = r'(\w{3})\|(\d+)\|(\d+)\|(.*)'
@@ -39,7 +38,7 @@ text_model = markovify.Text('\n'.join(df['Content']), state_size=5)
 # Generate a new "Bible" text
 new_bible_text = []
 for i in range(100):
-    new_verse = text_model.make_short_sentence(max_chars=500, max_overlap_total=400, tries=150)
+    new_verse = text_model.make_short_sentence(max_chars=500, max_overlap_total=100, tries=50)
     if new_verse:
         new_bible_text.append(new_verse)
 
